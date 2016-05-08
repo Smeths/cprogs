@@ -1,0 +1,20 @@
+#include <fcntl.h>
+#define BSIZE 1024
+
+void main()
+{
+  int fin,fout;
+  char buf[BSIZE];
+  int count;
+
+  fin = open("foo",O_RDONLY);
+  fout = open("bar",O_WRONLY|O_CREAT,0644);
+
+  while((count=read(fin,buf,BSIZE))>0)
+  
+  write(fout,buf,count);
+
+  close(fin);
+  close(fout);
+}
+
